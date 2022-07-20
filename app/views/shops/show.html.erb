@@ -1,0 +1,20 @@
+<h1>Horaires d'ouverture de <%= @shop.name %> </h1>
+<% if @shop.shop_opening_hours.any? %>
+  <div class="opening-hours-container">
+    <p class="opening-hours-title">Horaires : </p>
+    <ul>
+      <% ordered_days.map(&:downcase).each do |day| %>
+        <% current_opening_hour = @shop.opening_hour(day) %>
+        <% if current_opening_hour %>
+          <li class=<%="#{'current' if current_opening_hour.day == current_day.downcase}"%>><%= presenter(current_opening_hour) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <p> Ce magasin n'a pas d'horaires disponibles </p>
+<% end %>
+
+<p><%= link_to 'Editer les horaires', edit_shop_path(@shop) %> </p>
+<p><%= link_to 'Liste des magasins', shops_path %> </p>
+<p><%= link_to 'Ajouter un nouveau magasin', new_shop_path %> </p>

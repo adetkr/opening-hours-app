@@ -1,0 +1,44 @@
+* {
+    font-family: monospace;
+
+    .container {
+        width: 500px;
+        margin: 0 auto;
+
+        .opening-hours-container {
+            display: flex;
+    
+            ul {
+                margin-left: -32px;
+            }
+        }
+    
+        .current,
+        .opening-hours-title {
+            font-weight: 700;
+        }
+    
+        li {
+            list-style-type: none;
+            display: flex;
+    
+            p {
+                margin: 12px;
+            }
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input,
+        .input,
+        button {
+            margin-top: 16px;
+        }
+
+        .error {
+            color: red;
+        }
+    }
+}
