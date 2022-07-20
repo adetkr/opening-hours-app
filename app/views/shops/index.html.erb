@@ -1,11 +1,10 @@
 <h1>Liste des magasins</h1>
 <ul>
   <% @shops.each do |shop| %>
-      <li>
-        <p><%= shop.name  %> </p>
-        <p><%= link_to 'Voir les horaires', shop_path(shop) %> </p>
-        <p><%= link_to 'Editer les horaires', edit_shop_path(shop) %> </p>
-      </li>
-    </div>
+    <li>
+      <p><%= shop.name  %> </p>
+      <p><%= link_to 'Voir les horaires', shop_path(shop) %> </p>
+      <p><%= link_to 'Editer les horaires', edit_shop_path(shop) %> </p>
+    </li>
   <% end %>
 </ul>
