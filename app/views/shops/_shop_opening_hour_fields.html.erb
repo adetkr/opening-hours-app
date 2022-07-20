@@ -1,0 +1,8 @@
+<div class="nested-fields">
+  <%= f.input :day, collection: I18n.t('activerecord.attributes.shop_opening_hour.days').map {|k,v| [v,k]} %>
+  <%= f.input :open_at, include_blank: true %>
+  <%= f.input :break_starts_at, include_blank: true %>
+  <%= f.input :break_ends_at, include_blank: true %>
+  <%= f.input :close_at, include_blank: true %>
+  <%= link_to_remove_association "remove opening_hour", f %>
+</div>
