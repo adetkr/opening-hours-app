@@ -1,7 +1,16 @@
 * {
     font-family: monospace;
 
-    .current {
+    .opening-hours-container {
+        display: flex;
+
+        ul {
+            margin-left: -32px;
+        }
+    }
+
+    .current,
+    .opening-hours-title {
         font-weight: 700;
     }
 
