@@ -4,4 +4,8 @@ class Shop < ApplicationRecord
   validates_associated :shop_opening_hours
 
   validates :name, presence: true, uniqueness: true
+
+  def opening_hour(day)
+    shop_opening_hours.find { |opening_hour| opening_hour.day == day }
+  end
 end

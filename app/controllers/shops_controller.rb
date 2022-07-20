@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
+    @shop = Shop.includes(:shop_opening_hours).find(params[:id])
   end
 
   def new

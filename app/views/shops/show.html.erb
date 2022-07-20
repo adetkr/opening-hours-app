@@ -1,6 +1,11 @@
 <h1>Horaires d'ouverture de <%= @shop.name %> </h1>
 <ul>
-  <% @shop.shop_opening_hours.each do |opening_hour| %>
-    <li><%= "#{I18n.t("activerecord.attributes.shop_opening_hour.days.#{opening_hour.day}")} #{opening_hour.open_at.strftime('%Hh%M')}-#{opening_hour.break_starts_at.strftime('%Hh%M')} #{opening_hour.break_ends_at.strftime('%Hh%M')}-#{opening_hour.close_at.strftime('%Hh%M')}" %></li>
+  <% ordered_days.map(&:downcase).each do |day| %>
+    <% current_opening_hour = @shop.opening_hour(day) %>
+    <% if current_opening_hour %>
+      <li class=<%="#{'current' if current_opening_hour.day == current_day.downcase}"%>><%= presenter(current_opening_hour) %></li>
+    <% end %>
   <% end %>
 </ul>
+
+<p><%= link_to 'Editer les horaires', edit_shop_path(@shop) %> </p>
