@@ -47,4 +47,26 @@ RSpec.describe ShopsController, type: :request do
       end
     end
   end
+
+  describe 'update' do
+    let(:params) { { "shop" => { 'name': 'updated shop' } } }
+
+    context 'when params are valid' do
+      it 'updates shop name' do
+        expect(shop.name).to eq('issou')
+        put "/shops/#{shop.id}", params: params
+        expect(shop.reload.name).to eq('updated shop')
+      end
+    end
+
+    context 'when params are not valid' do
+      let(:params) { { "shop" => { 'name': nil } } }
+
+      it 'does not update shop name' do
+        expect(shop.name).to eq('issou')
+        put "/shops/#{shop.id}", params: params
+        expect(shop.reload.name).to eq('issou')
+      end
+    end
+  end
 end
