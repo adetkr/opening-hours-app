@@ -1,5 +1,5 @@
 <%= simple_form_for(shop) do |f| %>
-  <%= f.input :name  %>
+  <%= f.input :name, include_blank: false  %>
   <%= f.simple_fields_for :shop_opening_hours do |opening_hour| %>
     <div id="shop_opening_hours">
       <%= render 'shop_opening_hour_fields', f: opening_hour %>
