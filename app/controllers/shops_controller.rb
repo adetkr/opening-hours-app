@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  before_action :set_shop, only: [:update, :edit]
+
   def index
     @shops = Shop.all
   end
@@ -20,17 +22,20 @@ class ShopsController < ApplicationController
     end
   end
 
-  def edit
-    @shop = Shop.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
       redirect_to shop_path(@shop)
     else
       render :edit
     end
+  end
+
+  private
+
+  def set_shop
+    @shop = Shop.find(params[:id])
   end
 
   def shop_params
