@@ -10,3 +10,9 @@ fr:
           friday: "Vendredi"
           saturday: "Samedi"
           sunday: "Dimanche"
+    errors:
+      models:
+        shop_opening_hour:
+          attributes:
+            day:
+              blank: Vous devez renseigner un jour d'ouverture
