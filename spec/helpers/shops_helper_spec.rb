@@ -11,7 +11,7 @@ RSpec.describe ShopsHelper, type: :helper do
 
     it { is_expected.to eq 'Lundi  Fermé' }
 
-    context 'when the resource is not a User' do
+    context 'when the opening hour does not include break' do
       let(:current_opening_hour) do
         ShopOpeningHour.create(shop: shop, closed: false, day: :monday, open_at: DateTime.new(1999, 6, 30, 8, 30), close_at: DateTime.new(1999, 6, 30, 18, 30), break_ends_at: 7.hours.ago)
       end
@@ -19,7 +19,7 @@ RSpec.describe ShopsHelper, type: :helper do
       it { is_expected.to eq 'Lundi  08h30-18h30' }
     end
 
-    context 'when the resource is not a User' do
+    context 'when the opening hour includes a break' do
       let(:current_opening_hour) do
         ShopOpeningHour.create(shop: shop, closed: false, day: :monday, open_at: DateTime.new(1999, 6, 30, 7, 30), close_at: DateTime.new(1999, 6, 30, 20, 30), break_ends_at: DateTime.new(1999, 6, 30, 13, 30), break_starts_at: DateTime.new(1999, 6, 30, 12, 30))
       end
