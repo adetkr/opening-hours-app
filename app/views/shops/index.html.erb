@@ -2,5 +2,7 @@
 <ul>
   <% @shops.each do |shop| %>
     <li><%= shop.name %></li>
+    <p><%= link_to 'Voir les horaires', shop_path(shop) %> </p>
+    <p><%= link_to 'Editer les horaires', edit_shop_path(shop) %> </p>
   <% end %>
 </ul>
