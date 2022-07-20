@@ -1,4 +1,5 @@
 <div class="nested-fields">
+  <%= f.input :closed %>
   <%= f.input :day, collection: I18n.t('activerecord.attributes.shop_opening_hour.days').map {|k,v| [v,k]} %>
   <%= f.input :open_at, include_blank: true, minute_step: 15 %>
   <%= f.input :break_starts_at, include_blank: true, minute_step: 15 %>
