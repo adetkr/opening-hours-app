@@ -1,25 +1,44 @@
 * {
     font-family: monospace;
 
-    .opening-hours-container {
-        display: flex;
+    .container {
+        width: 500px;
+        margin: 0 auto;
 
-        ul {
-            margin-left: -32px;
+        .opening-hours-container {
+            display: flex;
+    
+            ul {
+                margin-left: -32px;
+            }
         }
-    }
+    
+        .current,
+        .opening-hours-title {
+            font-weight: 700;
+        }
+    
+        li {
+            list-style-type: none;
+            display: flex;
+    
+            p {
+                margin: 12px;
+            }
+        }
 
-    .current,
-    .opening-hours-title {
-        font-weight: 700;
-    }
+        h1 {
+            text-align: center;
+        }
 
-    li {
-        list-style-type: none;
-        display: flex;
+        input,
+        .input,
+        button {
+            margin-top: 16px;
+        }
 
-        p {
-            margin: 12px;
+        .error {
+            color: red;
         }
     }
 }
