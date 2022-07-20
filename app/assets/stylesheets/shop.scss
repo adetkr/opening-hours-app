@@ -4,4 +4,13 @@
     .current {
         font-weight: 700;
     }
+
+    li {
+        list-style-type: none;
+        display: flex;
+
+        p {
+            margin: 12px;
+        }
+    }
 }
