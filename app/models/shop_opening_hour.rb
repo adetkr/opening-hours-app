@@ -19,8 +19,10 @@ class ShopOpeningHour < ApplicationRecord
     sunday: 6,
   }
 
+  EMPTY_TIME_VALUE = '0000'
+
   def break_hours_filled?
-    break_starts_at.present? && break_ends_at.present? && break_starts_at.strftime('%H%M') != '0000' && break_ends_at.strftime('%H%M') != '0000'
+    break_starts_at.present? && break_ends_at.present? && break_starts_at.strftime('%H%M') != EMPTY_TIME_VALUE && break_ends_at.strftime('%H%M') != EMPTY_TIME_VALUE
   end
 
   protected
