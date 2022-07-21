@@ -66,4 +66,26 @@ RSpec.describe ShopOpeningHour, type: :model do
   describe 'relations' do
     it { is_expected.to belong_to(:shop) }
   end
+
+  describe '#break_hours_filled?' do
+    context 'when break hours are not filled' do
+      let(:shop_opening_hour) do
+        ShopOpeningHour.create(shop: shop, day: :monday, open_at: 10.hours.ago, close_at: 1.hour.ago, break_ends_at: 7.hours.ago)
+      end
+
+      it 'returns false' do
+        expect(shop_opening_hour.break_hours_filled?).to be_falsy
+      end
+    end
+
+    context 'when break hours are filled' do
+      let(:shop_opening_hour) do
+        ShopOpeningHour.create(shop: shop, day: :monday, open_at: 10.hours.ago, close_at: 1.hour.ago, break_starts_at: 6.hours.ago, break_ends_at: 7.hours.ago)
+      end
+
+      it 'returns true' do
+        expect(shop_opening_hour.break_hours_filled?).to be_truthy
+      end
+    end
+  end
 end
