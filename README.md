@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Please follow the intructions above to launch the app
 
-Things you may want to cover:
+## Dependencies
 
-* Ruby version
+* Rails 6.1.6.1
+* ruby 2.7.4
+* Yarn 1.22.11
+* Node v14.16.1
 
-* System dependencies
 
-* Configuration
+## Fetch the repo
 
-* Database creation
+* git clone git@github.com:adetkr/opening-hours-app.git
 
-* Database initialization
 
-* How to run the test suite
+## Launch the app
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install
+yarn install
+rails db:drop db:create db:migrate db:seed
+rails s
+```
 
-* Deployment instructions
-
-* ...
